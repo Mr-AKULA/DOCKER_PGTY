@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfluxDB Data Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>InfluxDB Data Visualization</h1>
+    <div id="line-graph" style="width:900px;height:500px;"></div>
+    <div id="bar-graph" style="width:500px;height:500px;"></div>
+    <script>
+        // Line Graph
+        var lineGraph = {{ graph_prediction_JSON | safe }};
+        Plotly.newPlot('line-graph', lineGraph.data, lineGraph.layout);
+
+        // Bar Graph
+        var barGraph = {{ graph_metrics_JSON | safe }};
+        Plotly.newPlot('bar-graph', barGraph.data, barGraph.layout);
+    </script>
+</body>
+</html>

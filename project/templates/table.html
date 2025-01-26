@@ -1,0 +1,18 @@
+<table id="metrics_table">
+    <thead>
+        <tr>
+            {% for column_name in columns_names %}
+                <th>{{ column_name }}</th> <!-- Заголовок столбца с именем колонки -->
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for index, vals in data_metrics.iterrows() %}
+            <tr>
+                {% for val in vals %}
+                    <td>{{ val }}</td> <!-- Ячейка таблицы с значением -->
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
